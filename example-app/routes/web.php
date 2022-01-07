@@ -20,7 +20,18 @@ Route::get('/', function () {
    $nome = "fabio";
    $idade = 22;
 
-    return view('welcome',['nome' => $nome, 'idade' => $idade, 'profissao' => "programador"]);
+   $arr = [10,20,30,40,50];
+
+   $nomes = ["matheus", "maria", "joao", "saulo"];
+
+    return view('welcome',
+        [ 
+            'nome' => $nome,
+            'idade' => $idade, 
+            'profissao' => "programador",
+            'arr' => $arr,
+            'nomes' => $nomes
+        ]);
 });
 
 

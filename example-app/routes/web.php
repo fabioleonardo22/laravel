@@ -20,16 +20,5 @@ Route::get('/events/create', [eventcontroller::class, 'create']);
 
 
 Route::get('/contact', function () {
-    return view('contact');
-});
-
-Route::get('/produtos', function () {
-
-      $busca = request('search');
-
-    return view('products', ['busca' => $busca]);
-});
-
-Route::get('/produtos/{id}', function ($id) {
-    return view('product',['id' => $id]);
+ //   return view('contact');
 });

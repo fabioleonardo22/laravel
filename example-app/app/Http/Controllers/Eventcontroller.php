@@ -31,6 +31,8 @@ class Eventcontroller extends Controller
      $event->city = $request->city;
      $event->private = $request->private;
      $event->description = $request->description;
+     $event->items = $request->items;
+     $event->image = $request->image;
 
      // image upload
      if($request->hasfile('image') && $request->file('image')->isvalid()) {
@@ -44,7 +46,11 @@ class Eventcontroller extends Controller
          $request->image->move(public_path('img/events'), $imagename);
 
          $event->image = $imagename;
+
      }
+
+
+
 
      $event->save();
 
@@ -54,7 +60,7 @@ class Eventcontroller extends Controller
 
     public function show($id) {
 
-        $event = Event::findorfail($id);
+        $event = Event::findOrfail($id);
 
         return view('events.show', ['event' => $event]);
 

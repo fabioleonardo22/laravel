@@ -1,15 +1,37 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.main')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+@section('title', dasboard)
+
+@section('content')
+
+<div class="col-md-10 offset-md-1 dashboard-title-container">
+    <h1>meus eventos</h1>
+</div>
+<div class="col-md-10 offset-md-1 dashboard-events-container">
+    @if(count(events) > 0)
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">nome</th>
+                <th scope="col">participantes</th>
+                <th scope="col">ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($events as $event)
+                <tr>
+                    <td scropt="row">{{ $loop->index + 1 }}</td>
+                    <td><a href="/events/{{ $event->id }}">{{ $event->title }}</a></td>
+                    <td>0</td>
+                    <td><a href="#">editar</a> <a href="#"> deletar</a></td>
+                </tr>
+            @endforeach
+        </tbody>
+     </table>
+    @else
+    <p>vocẽ ainda nao tem eventos, <a href="/events/create">criar evento</a> </p>
+    @endif
+</div>
+
+@endsection

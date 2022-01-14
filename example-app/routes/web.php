@@ -21,9 +21,8 @@ Route::get('/events/{id}', [Eventcontroller::class, 'show']);
 Route::post('/events', [Eventcontroller::class, 'store']);
 
 Route::get('/contact', function () {
- //   return view('contact');
+   return view('contact');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/dashboard', [Eventcontroller::class, 'dashboard'])->middleware('auth');
+

@@ -8,7 +8,7 @@
 
 <div id="search-container" class="col-md-12">
     <h1>Busque um evento</h1>
-    <form action="/" method="GET">
+    <form action="/" method="get">
         <input type="text" id="search" name="search" class="form-control" placeholder="procurar...">
     </form>
 </div>
